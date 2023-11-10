@@ -1,0 +1,11 @@
+[Unit]
+Description=Monitor dimmer
+
+[Service]
+ExecStart=/opt/monitor-dimmer/monitor-dimmer
+Restart=on-failure
+RestartSec=30s
+Group=i2c
+
+[Install]
+WantedBy=graphical.target
