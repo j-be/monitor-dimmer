@@ -3,10 +3,11 @@
 #define NUM_INNER 100
 #define NUM_OUTER 100
 
-int light = 0;
-int interim_inner = 0;
-int interim_outer[NUM_OUTER];
-int outer = 0;
+u32 light = 0;
+u32 interim_inner = 0;
+
+u16 interim_outer[NUM_OUTER];
+u8 outer = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -24,7 +25,7 @@ void setup() {
 void loop() {
   interim_inner = 0;
   for (int i = 0; i < NUM_INNER; i++) {
-    interim_inner += analogRead(A6);
+    interim_inner += analogRead(A7);
   }
   interim_outer[outer] = interim_inner / NUM_INNER;
   outer = (outer + 1) % NUM_OUTER;
