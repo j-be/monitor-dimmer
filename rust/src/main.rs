@@ -10,6 +10,8 @@ use serialport::SerialPort;
 
 // index in array is the id of the display
 fn main() -> Result<()> {
+    println!("Starting MonitorDimmer version {}", env!("CARGO_PKG_VERSION"));
+
     let serial = env::var("SERIAL").unwrap_or(String::from("/dev/ttyUSB0"));
 
     let mut port = serialport::new(serial, 9_600)

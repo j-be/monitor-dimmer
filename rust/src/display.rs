@@ -8,7 +8,7 @@ pub fn get_display() -> Option<Display> {
 }
 
 pub fn set_brightness(display: &mut Display, value: u16) -> Result<()> {
-    let result = display.handle.set_vcp_feature(0x10, value);
+    let result = display.handle.set_vcp_feature(0x10, value.clamp(0, 100));
     display.handle.sleep();
     result
 }
